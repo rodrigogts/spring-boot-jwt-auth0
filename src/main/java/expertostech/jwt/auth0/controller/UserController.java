@@ -32,17 +32,8 @@ public class UserController {
         return new ResponseEntity<>(repository.findAll(), HttpStatus.OK);
     }
 
-//    @PostMapping("/login")
-//    public ResponseEntity<Boolean> login(@RequestBody UserModel data) {
-//
-//        UserModel user = repository.findByLogin(data.getLogin()).orElse(null);
-//        if (user == null) {
-//            return new ResponseEntity<>(false, HttpStatus.FORBIDDEN);
-//        }
-//
-//        boolean ok = passwordEncoder.matches(data.getPassword(), user.getPassword());
-//        HttpStatus status = ok ? HttpStatus.OK : HttpStatus.FORBIDDEN;
-//
-//        return new ResponseEntity<>(ok, status);
-//    }
+    @GetMapping("/passwordGen")
+    public ResponseEntity<String> passwordGen(@RequestParam(name = "password") String password) {
+        return ResponseEntity.ok(passwordEncoder.encode(password));
+    }
 }
