@@ -1,8 +1,8 @@
-package expertostech.password.encrypt.service;
+package expertostech.jwt.auth0.service;
 
-import expertostech.password.encrypt.data.UserDetailsData;
-import expertostech.password.encrypt.model.UserModel;
-import expertostech.password.encrypt.repository.UserRepository;
+import expertostech.jwt.auth0.data.UserDetailsData;
+import expertostech.jwt.auth0.model.UserModel;
+import expertostech.jwt.auth0.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

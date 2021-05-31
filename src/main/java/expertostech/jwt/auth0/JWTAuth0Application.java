@@ -1,4 +1,4 @@
-package expertostech.password.encrypt;
+package expertostech.jwt.auth0;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
  * @author Rodrigo Tavares
  */
 @SpringBootApplication
-public class PasswordEncryptApplication {
+public class JWTAuth0Application {
 
 	@Value("${pbkdf2.pepper}")
 	private String pepper;
@@ -27,7 +27,7 @@ public class PasswordEncryptApplication {
 	private int hashWidth;
 
 	public static void main(String[] args) {
-		SpringApplication.run(PasswordEncryptApplication.class, args);
+		SpringApplication.run(JWTAuth0Application.class, args);
 	}
 
 	@Bean

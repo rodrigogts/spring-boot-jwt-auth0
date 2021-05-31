@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>expertostech</groupId>
-	<artifactId>password-encrypt</artifactId>
+	<artifactId>spring-boot-jwt-auth0</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>password-encrypt</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring-boot-jwt-auth0</name>
+	<description>Spring Boot with JWT and Auth0</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

@@ -1,4 +1,4 @@
-package expertostech.password.encrypt.model;
+package expertostech.jwt.auth0.model;
 
 import lombok.Getter;
 import lombok.Setter;

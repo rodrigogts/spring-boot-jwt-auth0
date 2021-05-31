@@ -1,4 +1,4 @@
-package expertostech.password.encrypt.sample;
+package expertostech.jwt.auth0.sample;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;

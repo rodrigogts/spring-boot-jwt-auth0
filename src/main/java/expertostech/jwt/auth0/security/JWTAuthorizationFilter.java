@@ -1,4 +1,4 @@
-package expertostech.password.encrypt.security;
+package expertostech.jwt.auth0.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

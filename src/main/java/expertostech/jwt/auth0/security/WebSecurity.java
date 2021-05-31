@@ -1,6 +1,6 @@
-package expertostech.password.encrypt.security;
+package expertostech.jwt.auth0.security;
 
-import expertostech.password.encrypt.service.UserDetailsServiceImpl;
+import expertostech.jwt.auth0.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

@@ -1,6 +1,6 @@
-package expertostech.password.encrypt.data;
+package expertostech.jwt.auth0.data;
 
-import expertostech.password.encrypt.model.UserModel;
+import expertostech.jwt.auth0.model.UserModel;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

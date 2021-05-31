@@ -1,10 +1,10 @@
-package expertostech.password.encrypt.security;
+package expertostech.jwt.auth0.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import expertostech.password.encrypt.data.UserDetailsData;
-import expertostech.password.encrypt.model.UserModel;
+import expertostech.jwt.auth0.data.UserDetailsData;
+import expertostech.jwt.auth0.model.UserModel;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;

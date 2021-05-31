@@ -1,6 +1,6 @@
-package expertostech.password.encrypt.repository;
+package expertostech.jwt.auth0.repository;
 
-import expertostech.password.encrypt.model.UserModel;
+import expertostech.jwt.auth0.model.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

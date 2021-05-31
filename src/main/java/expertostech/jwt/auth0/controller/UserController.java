@@ -1,7 +1,7 @@
-package expertostech.password.encrypt.controller;
+package expertostech.jwt.auth0.controller;
 
-import expertostech.password.encrypt.model.UserModel;
-import expertostech.password.encrypt.repository.UserRepository;
+import expertostech.jwt.auth0.model.UserModel;
+import expertostech.jwt.auth0.repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -1,4 +1,4 @@
-package expertostech.password.encrypt.security;
+package expertostech.jwt.auth0.security;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
