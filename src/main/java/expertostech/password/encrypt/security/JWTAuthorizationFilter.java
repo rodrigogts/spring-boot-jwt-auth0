@@ -14,20 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static expertostech.password.encrypt.security.SecurityConstants.*;
-
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
-    public JWTAuthorizationFilter(AuthenticationManager authManager) {
+    private final JWTAttributes jwtAttributes;
+
+    public JWTAuthorizationFilter(AuthenticationManager authManager, JWTAttributes jwtAttributes) {
         super(authManager);
+        this.jwtAttributes = jwtAttributes;
     }
 
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
             throws IOException, ServletException {
-        String header = req.getHeader(HEADER_STRING);
+        String header = req.getHeader(jwtAttributes.getHeaderString());
 
-        if (header == null || !header.startsWith(TOKEN_PREFIX)) {
+        if (header == null || !header.startsWith(jwtAttributes.getTokenPrefix())) {
             chain.doFilter(req, res);
             return;
         }
@@ -40,23 +41,23 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
     // Reads the JWT from the Authorization header, and then uses JWT to validate the token
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-        String token = request.getHeader(HEADER_STRING);
+        String token = request.getHeader(jwtAttributes.getHeaderString());
 
-        if (token != null) {
-            // parse the token.
-            String username = JWT.require(Algorithm.HMAC512(SECRET.getBytes()))
-                    .build()
-                    .verify(token.replace(TOKEN_PREFIX, ""))
-                    .getSubject();
-
-            if (username != null) {
-                // new arraylist means authorities
-                return new UsernamePasswordAuthenticationToken(username, null, new ArrayList<>());
-            }
-
+        if (token == null) {
             return null;
         }
 
-        return null;
+        // Parse the token.
+        String username = JWT.require(Algorithm.HMAC512(jwtAttributes.getSecret().getBytes()))
+                .build()
+                .verify(token.replace(jwtAttributes.getTokenPrefix(), ""))
+                .getSubject();
+
+        if (username == null) {
+            return null;
+        }
+
+        // new arraylist means authorities
+        return new UsernamePasswordAuthenticationToken(username, null, new ArrayList<>());
     }
 }

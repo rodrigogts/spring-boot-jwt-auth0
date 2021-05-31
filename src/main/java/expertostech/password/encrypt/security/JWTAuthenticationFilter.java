@@ -1,7 +1,5 @@
 package expertostech.password.encrypt.security;
 
-import static expertostech.password.encrypt.security.SecurityConstants.*;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,9 +21,11 @@ import java.util.Date;
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
+    private final JWTAttributes jwtAttributes;
 
-    public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
+    public JWTAuthenticationFilter(AuthenticationManager authenticationManager, JWTAttributes jwtAttributes) {
         this.authenticationManager = authenticationManager;
+        this.jwtAttributes = jwtAttributes;
     }
 
     @Override
@@ -56,8 +56,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         String token = JWT.create()
                 .withSubject(user.getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-                .sign(Algorithm.HMAC512(SECRET.getBytes()));
+                .withExpiresAt(new Date(System.currentTimeMillis() + jwtAttributes.getExpirationTime()))
+                .sign(Algorithm.HMAC512(jwtAttributes.getSecret().getBytes()));
 
         String body = user.getUsername() + " " + token;
         res.getWriter().write(body);
