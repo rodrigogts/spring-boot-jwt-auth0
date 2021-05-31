@@ -9,6 +9,11 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 
+/**
+ * Reference: https://www.freecodecamp.org/news/how-to-setup-jwt-authorization-and-authentication-in-spring/
+ *
+ * @author Rodrigo Tavares
+ */
 @SpringBootApplication
 public class PasswordEncryptApplication {
 

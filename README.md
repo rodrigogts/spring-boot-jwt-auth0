@@ -2,7 +2,7 @@
 
 ```json
 {
-	"id":6,
+	"id":1,
 	"name":"User Name",
 	"login":"user",
 	"password":"123456",
